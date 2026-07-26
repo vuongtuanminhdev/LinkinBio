@@ -1,0 +1,23 @@
+{
+    "name": "game-utility-dashboard",
+    "version": "1.0.0",
+    "description": "Game utility dashboard UI",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "npx serve ."
+    },
+    "keywords": [
+        "dashboard",
+        "ui",
+        "game"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "serve": "^14.2.0"
+    }
+}
