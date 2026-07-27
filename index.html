@@ -26,6 +26,8 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      /* loại bỏ highlight xanh khi chạm */
     }
 
     :root {
@@ -495,6 +497,8 @@
       gap: 6px;
       text-decoration: none;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .social-icon {
@@ -521,20 +525,12 @@
       transition: opacity 0.3s ease;
     }
 
-    .social-btn:hover .social-icon::after {
-      opacity: 0.06;
-    }
-
     .social-icon svg {
       width: 22px;
       height: 22px;
       position: relative;
       z-index: 1;
       transition: transform 0.4s ease;
-    }
-
-    .social-btn:hover .social-icon svg {
-      transform: scale(1.1);
     }
 
     .social-name {
@@ -546,8 +542,19 @@
       transition: color 0.3s ease;
     }
 
-    .social-btn:hover .social-name {
-      color: var(--accent);
+    /* Chỉ áp dụng hiệu ứng hover trên thiết bị có con trỏ chuột (desktop) */
+    @media (hover: hover) {
+      .social-btn:hover .social-icon::after {
+        opacity: 0.06;
+      }
+
+      .social-btn:hover .social-icon svg {
+        transform: scale(1.1);
+      }
+
+      .social-btn:hover .social-name {
+        color: var(--accent);
+      }
     }
 
     .si-fb {
@@ -651,19 +658,39 @@
       pointer-events: none;
     }
 
-    .link-card:hover::before {
-      opacity: 1;
-    }
+    /* Hover cho link cards cũng nên giữ trên desktop, nhưng có thể giữ nguyên vì không quá xấu trên mobile? 
+       Tuy nhiên nếu muốn tắt hoàn toàn trên mobile thì bọc trong @media (hover: hover) */
+    @media (hover: hover) {
+      .link-card:hover::before {
+        opacity: 1;
+      }
 
-    .link-card:hover::after {
-      transform: scaleY(1);
-    }
+      .link-card:hover::after {
+        transform: scaleY(1);
+      }
 
-    .link-card:hover {
-      transform: translateX(6px) scale(1.01);
-      border-color: var(--card-accent, var(--accent));
-      box-shadow: var(--shadow-card), 0 0 30px var(--glow);
-      background: var(--surface-hover);
+      .link-card:hover {
+        transform: translateX(6px) scale(1.01);
+        border-color: var(--card-accent, var(--accent));
+        box-shadow: var(--shadow-card), 0 0 30px var(--glow);
+        background: var(--surface-hover);
+      }
+
+      .link-card:hover .card-icon-wrap {
+        border-color: var(--card-accent, var(--accent));
+        transform: scale(1.04);
+        box-shadow: 0 0 20px var(--glow);
+      }
+
+      .link-card:hover .card-title {
+        color: var(--card-accent, var(--accent));
+      }
+
+      .link-card:hover .card-arrow {
+        color: var(--card-accent, var(--accent));
+        transform: translateX(6px) scale(1.1);
+        opacity: 1;
+      }
     }
 
     .card-icon-wrap {
@@ -680,12 +707,6 @@
       overflow: hidden;
       border: 1px solid var(--border);
       transition: all 0.4s ease;
-    }
-
-    .link-card:hover .card-icon-wrap {
-      border-color: var(--card-accent, var(--accent));
-      transform: scale(1.04);
-      box-shadow: 0 0 20px var(--glow);
     }
 
     .card-icon-wrap img,
@@ -714,10 +735,6 @@
       transition: color 0.3s ease;
     }
 
-    .link-card:hover .card-title {
-      color: var(--card-accent, var(--accent));
-    }
-
     .card-sub {
       font-size: 11px;
       color: var(--text-muted);
@@ -740,12 +757,6 @@
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex-shrink: 0;
       opacity: 0.5;
-    }
-
-    .link-card:hover .card-arrow {
-      color: var(--card-accent, var(--accent));
-      transform: translateX(6px) scale(1.1);
-      opacity: 1;
     }
 
     /* FOOTER */
