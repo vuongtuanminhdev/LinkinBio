@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#0a0a0f" />
   <title>MV.Novix Store | Links</title>
 
-  <!-- Favicon vương miện trắng viền đen -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M12 60 L22 30 L38 45 L50 22 L62 45 L78 30 L88 60 L80 60 L80 70 L20 70 L20 60 Z' fill='white' stroke='black' stroke-width='4' stroke-linejoin='round' paint-order='stroke fill'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon"
@@ -21,7 +20,6 @@
     rel="stylesheet" />
 
   <style>
-    /* ===== RESET & BASE ===== */
     *,
     *::before,
     *::after {
@@ -36,7 +34,6 @@
       --surface: rgba(255, 255, 255, 0.04);
       --surface-hover: rgba(255, 255, 255, 0.08);
       --border: rgba(255, 255, 255, 0.06);
-      --border-glow: rgba(199, 125, 255, 0.15);
       --text: #f0eeff;
       --text-muted: #6b6a8a;
       --accent: #c77dff;
@@ -46,10 +43,8 @@
       --glow-strong: rgba(199, 125, 255, 0.4);
       --shadow-card: 0 12px 48px rgba(0, 0, 0, 0.6);
       --gradient-avatar: linear-gradient(135deg, #c77dff, #7b2fff, #00c6ff, #c77dff);
-      --gradient-shop: linear-gradient(135deg, #ff6b6b, #f06595, #cc5de8, #845ef7);
       --radius-card: 20px;
       --radius-icon: 14px;
-      --transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     html {
@@ -71,7 +66,29 @@
       position: relative;
     }
 
-    /* ===== ANIMATED BACKGROUND ===== */
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--surface-hover);
+      border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* BACKGROUND */
     .bg-canvas {
       position: fixed;
       inset: 0;
@@ -95,7 +112,6 @@
       top: -200px;
       left: -200px;
       animation-duration: 25s;
-      animation-delay: 0s;
     }
 
     .bg-canvas .orb:nth-child(2) {
@@ -139,7 +155,6 @@
       }
     }
 
-    /* ===== GRID OVERLAY ===== */
     .bg-grid {
       position: fixed;
       inset: 0;
@@ -153,7 +168,7 @@
       -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
     }
 
-    /* ===== CAPTCHA OVERLAY ===== */
+    /* CAPTCHA */
     .captcha-overlay {
       position: fixed;
       inset: 0;
@@ -322,7 +337,7 @@
       color: var(--accent);
     }
 
-    /* ===== CONTAINER ===== */
+    /* CONTAINER */
     .container {
       max-width: 480px;
       width: 100%;
@@ -330,7 +345,7 @@
       z-index: 1;
     }
 
-    /* ===== LAYOUT 2 CỘT ===== */
+    /* LAYOUT */
     .main-layout {
       display: flex;
       flex-direction: column;
@@ -346,46 +361,7 @@
       min-width: 0;
     }
 
-    @media (min-width: 768px) {
-      body {
-        padding: 48px 32px 80px;
-      }
-
-      .container {
-        max-width: 1024px;
-      }
-
-      .main-layout {
-        flex-direction: row;
-        gap: 80px;
-        align-items: flex-start;
-      }
-
-      .left-col {
-        width: 340px;
-        position: sticky;
-        top: 48px;
-      }
-
-      .right-col {
-        flex: 1;
-        align-self: center;
-      }
-
-      .right-col .divider {
-        margin-top: 0;
-      }
-
-      .profile {
-        margin-bottom: 24px;
-      }
-
-      .shop-cta-wrapper {
-        margin-bottom: 28px;
-      }
-    }
-
-    /* ===== PROFILE ===== */
+    /* PROFILE */
     .profile {
       display: flex;
       flex-direction: column;
@@ -475,161 +451,7 @@
       backdrop-filter: blur(8px);
     }
 
-    /* ===== SHOP CTA ===== */
-    .shop-cta-wrapper {
-      margin-bottom: 28px;
-      animation: fadeUp 0.8s 0.08s ease both;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .shop-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      background: var(--gradient-shop);
-      background-size: 300% 300%;
-      color: white;
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: 0.02em;
-      padding: 16px 36px;
-      border-radius: 60px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(204, 93, 232, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      z-index: 1;
-      animation: gradientShift 4s ease infinite, pulseGlow 3s ease-in-out infinite;
-    }
-
-    .shop-cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 2;
-    }
-
-    .shop-cta:hover::before {
-      opacity: 1;
-    }
-
-    .shop-cta::after {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      border-radius: 58px;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .shop-cta:hover::after {
-      opacity: 1;
-    }
-
-    .shop-cta:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 16px 48px rgba(204, 93, 232, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.15);
-      animation: gradientShift 3s ease infinite, pulseGlow 1.5s ease-in-out infinite;
-    }
-
-    .shop-cta:active {
-      transform: translateY(-1px) scale(0.97);
-    }
-
-    .shop-icon {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      padding: 6px;
-      transition: transform 0.4s ease;
-      backdrop-filter: blur(4px);
-    }
-
-    .shop-cta:hover .shop-icon {
-      transform: rotate(-12deg) scale(1.1);
-    }
-
-    .shop-icon svg {
-      width: 18px;
-      height: 18px;
-      fill: white;
-      stroke: white;
-    }
-
-    .shop-text {
-      position: relative;
-      z-index: 3;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .shop-badge {
-      position: relative;
-      z-index: 3;
-      background: rgba(255, 255, 255, 0.2);
-      font-size: 10px;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      backdrop-filter: blur(8px);
-      color: white;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all 0.3s ease;
-    }
-
-    .shop-cta:hover .shop-badge {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: scale(1.05);
-    }
-
-    @keyframes pulseGlow {
-
-      0%,
-      100% {
-        box-shadow: 0 8px 32px rgba(204, 93, 232, 0.4);
-      }
-
-      50% {
-        box-shadow: 0 12px 48px rgba(255, 107, 107, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.1);
-      }
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* ===== SOCIAL ===== */
+    /* SOCIAL */
     .social-section {
       margin-bottom: 28px;
       animation: fadeUp 0.8s 0.12s ease both;
@@ -689,27 +511,6 @@
       backdrop-filter: blur(8px);
     }
 
-    .social-icon::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      padding: 1px;
-      background: var(--gradient-avatar);
-      background-size: 300% 300%;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      animation: gradientShift 4s ease infinite;
-    }
-
-    .social-btn:hover .social-icon::before {
-      opacity: 1;
-    }
-
     .social-icon::after {
       content: '';
       position: absolute;
@@ -718,13 +519,6 @@
       opacity: 0;
       border-radius: 16px;
       transition: opacity 0.3s ease;
-    }
-
-    .social-btn:hover .social-icon {
-      border-color: var(--accent);
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 32px var(--glow);
-      background: var(--surface-hover);
     }
 
     .social-btn:hover .social-icon::after {
@@ -776,7 +570,7 @@
       color: #0068ff;
     }
 
-    /* ===== DIVIDER ===== */
+    /* DIVIDER */
     .divider {
       display: flex;
       align-items: center;
@@ -802,7 +596,7 @@
       padding: 0 4px;
     }
 
-    /* ===== LINK CARDS ===== */
+    /* LINK CARDS */
     .links-section {
       display: flex;
       flex-direction: column;
@@ -954,7 +748,7 @@
       opacity: 1;
     }
 
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     .footer {
       margin-top: 44px;
       text-align: center;
@@ -987,10 +781,24 @@
       animation: gradientShift 4s ease infinite;
     }
 
-    /* ===== ANIMATIONS ===== */
+    /* ANIMATIONS */
     @keyframes spinRing {
       to {
         filter: hue-rotate(360deg);
+      }
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
       }
     }
 
@@ -1006,25 +814,42 @@
       }
     }
 
-    /* ===== SCROLLBAR ===== */
-    ::-webkit-scrollbar {
-      width: 4px;
+    /* RESPONSIVE */
+    @media (min-width: 768px) {
+      body {
+        padding: 48px 32px 80px;
+      }
+
+      .container {
+        max-width: 1024px;
+      }
+
+      .main-layout {
+        flex-direction: row;
+        gap: 80px;
+        align-items: flex-start;
+      }
+
+      .left-col {
+        width: 340px;
+        position: sticky;
+        top: 48px;
+      }
+
+      .right-col {
+        flex: 1;
+        align-self: center;
+      }
+
+      .right-col .divider {
+        margin-top: 0;
+      }
+
+      .profile {
+        margin-bottom: 24px;
+      }
     }
 
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--surface-hover);
-      border-radius: 8px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
-    }
-
-    /* ===== MOBILE OPTIMIZATION ===== */
     @media (max-width: 400px) {
       .avatar-wrap {
         width: 150px;
@@ -1038,12 +863,6 @@
       .card-icon-wrap {
         width: 44px;
         height: 44px;
-      }
-
-      .shop-cta {
-        font-size: 14px;
-        padding: 14px 24px;
-        gap: 10px;
       }
 
       .social-icon {
@@ -1089,18 +908,12 @@
         font-size: 8px;
       }
     }
-
-    /* ===== GLOW TEXT SELECTION ===== */
-    ::selection {
-      background: var(--accent);
-      color: var(--bg);
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== CAPTCHA OVERLAY ===== -->
+  <!-- CAPTCHA OVERLAY -->
   <div class="captcha-overlay" id="captchaOverlay">
     <div class="captcha-box">
       <span class="captcha-icon">🛡️</span>
@@ -1116,7 +929,7 @@
     </div>
   </div>
 
-  <!-- ===== ANIMATED BACKGROUND ===== -->
+  <!-- ANIMATED BACKGROUND -->
   <div class="bg-canvas">
     <div class="orb"></div>
     <div class="orb"></div>
@@ -1125,39 +938,20 @@
   <div class="bg-grid"></div>
 
   <div class="container">
-
-    <!-- ===== MAIN LAYOUT ===== -->
     <div class="main-layout">
 
-      <!-- ===== LEFT COL ===== -->
+      <!-- LEFT COL -->
       <div class="left-col">
-
         <!-- PROFILE -->
         <div class="profile">
           <div class="avatar-wrap">
             <div class="avatar-inner">
               <img src="https://cdn.phototourl.com/free/2026-07-26-24a665eb-b7c7-495b-aac6-5cfd7eab39e9.jpg"
-                alt="MV Novix Logo" class="avatar-image" loading="lazy" decoding="async">
+                alt="MV Novix Logo" class="avatar-image" loading="lazy" decoding="async" />
             </div>
           </div>
           <h1 class="profile-name">VUONG TUAN MINH</h1>
           <span class="profile-tag">✦ Creator &amp; Developer</span>
-        </div>
-
-        <!-- SHOP CTA -->
-        <div class="shop-cta-wrapper">
-          <a href="#" class="shop-cta">
-            <span class="shop-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="9" cy="21" r="1" fill="white" stroke="none" />
-                <circle cx="20" cy="21" r="1" fill="white" stroke="none" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
-            </span>
-            <span class="shop-text">SHOP MV · NOVIX</span>
-            <span class="shop-badge">MỞ</span>
-          </a>
         </div>
 
         <!-- SOCIAL -->
@@ -1184,7 +978,6 @@
               </div>
               <span class="social-name">Instagram</span>
             </a>
-
             <a href="https://tiktok.com/@mv.novix" class="social-btn" aria-label="TikTok">
               <div class="social-icon">
                 <svg class="si-tt" viewBox="0 0 24 24" fill="currentColor">
@@ -1194,7 +987,6 @@
               </div>
               <span class="social-name">TikTok</span>
             </a>
-
             <a href="http://www.youtube.com/@vuongtuanminhdev" class="social-btn" aria-label="YouTube">
               <div class="social-icon">
                 <svg class="si-yt" viewBox="0 0 24 24" fill="currentColor">
@@ -1205,7 +997,6 @@
               </div>
               <span class="social-name">YouTube</span>
             </a>
-
             <a href="http://zaloapp.com/qr/p/1m2sfxp7zuioz" class="social-btn" aria-label="Zalo">
               <div class="social-icon">
                 <svg class="si-zl" viewBox="0 0 24 24" fill="currentColor">
@@ -1219,25 +1010,21 @@
         </div>
       </div>
 
-      <!-- ===== RIGHT COL ===== -->
+      <!-- RIGHT COL -->
       <div class="right-col">
-
-        <!-- DIVIDER -->
         <div class="divider">
           <div class="divider-line"></div>
           <span class="divider-text">Các phiên bản mới</span>
           <div class="divider-line"></div>
         </div>
 
-        <!-- LINK CARDS -->
         <div class="links-section">
-
           <!-- MTH Proxy -->
           <a href="https://link4m.org/Iw1iQX" class="link-card" style="--card-accent: #f57676;" target="_blank"
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-26-873b32da-98e1-4d4b-b130-190c2f1102e1.jpg"
-                alt="MTH Proxy" loading="lazy" decoding="async">
+                alt="MTH Proxy" loading="lazy" decoding="async" />
             </div>
             <div class="card-info">
               <p class="card-title">MTH PROXY V9.0</p>
@@ -1263,7 +1050,7 @@
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-27-ee32109a-0169-492f-8c38-b3998dda0e0d.jpg"
-                alt="YSM TEAM MOD MENU V3.0" loading="lazy" decoding="async">
+                alt="YSM TEAM MOD MENU V3.0" loading="lazy" decoding="async" />
             </div>
             <div class="card-info">
               <p class="card-title">YSM TEAM MOD MENU V3</p>
@@ -1284,12 +1071,12 @@
             </svg>
           </a>
 
-          <!-- SX2 Team Proxy V4.0-->
+          <!-- SX2 Team Proxy V4.0 -->
           <a href="https://link4m.net/IHihE" class="link-card" style="--card-accent: #0ee920ce;" target="_blank"
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-26-c117947b-2271-476e-a1ec-5b0b5c90b434.png"
-                alt="SX2 TEAM Proxy V4" loading="lazy" decoding="async">
+                alt="SX2 TEAM Proxy V4" loading="lazy" decoding="async" />
             </div>
             <div class="card-info">
               <p class="card-title">SX2 TEAM PROXY V4.0</p>
@@ -1315,7 +1102,7 @@
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-26-048e72b3-6f69-4e3a-938b-529981ddf63a.jpg" alt="Vextu"
-                loading="lazy" decoding="async">
+                loading="lazy" decoding="async" />
             </div>
             <div class="card-info">
               <p class="card-title">Fake Lag NinjaPlus_VextuCracked</p>
@@ -1342,7 +1129,7 @@
             <div class="card-icon-wrap">
               <img
                 src="https://play-lh.googleusercontent.com/IuexTsP_Ho8Go-8DEtUg1oxbdQ-eIH44wctnTRrHHwPjEZLUQxnNHpkGcbfvHY7JJPeEp4_OdfdOgjH3DgD2Pw"
-                loading="lazy" decoding="async">
+                alt="MV Novix MOD" loading="lazy" decoding="async" />
             </div>
             <div class="card-info">
               <p class="card-title">MV Novix MOD_Skin_OutFit</p>
@@ -1369,16 +1156,13 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <p>Tạo bởi <span>MVuong - Novix</span> &bull; 2026</p>
-  </div>
+    <p>Tạo bởi <span>mvuong - novix</span> &bull; 2026</p>
   </div>
 
-  <!-- ===== CAPTCHA SCRIPT ===== -->
+  <!-- CAPTCHA SCRIPT -->
   <script>
     (function () {
       'use strict';
-
-      // DOM elements
       const overlay = document.getElementById('captchaOverlay');
       const questionEl = document.getElementById('captchaQuestion');
       const inputEl = document.getElementById('captchaInput');
@@ -1386,15 +1170,11 @@
       const errorEl = document.getElementById('captchaError');
       const refreshBtn = document.getElementById('captchaRefresh');
 
-      // State
-      let num1 = 0;
-      let num2 = 0;
       let correctAnswer = 0;
 
-      // Generate random numbers 1-10
       function generateQuestion() {
-        num1 = Math.floor(Math.random() * 9) + 1; // 1-9
-        num2 = Math.floor(Math.random() * 9) + 1;
+        const num1 = Math.floor(Math.random() * 9) + 1;
+        const num2 = Math.floor(Math.random() * 9) + 1;
         correctAnswer = num1 + num2;
         questionEl.textContent = num1 + ' + ' + num2 + ' = ?';
         errorEl.textContent = '';
@@ -1402,7 +1182,6 @@
         inputEl.focus();
       }
 
-      // Check answer
       function verify() {
         const userAnswer = parseInt(inputEl.value.trim(), 10);
         if (isNaN(userAnswer)) {
@@ -1410,23 +1189,15 @@
           return;
         }
         if (userAnswer === correctAnswer) {
-          // Success: hide overlay and store session
           sessionStorage.setItem('captcha_passed', 'true');
           overlay.classList.add('hidden');
-          // Focus away from input to avoid accidental keyboard
           inputEl.blur();
         } else {
           errorEl.textContent = '❌ Sai rồi, thử lại nhé!';
-          inputEl.value = '';
-          inputEl.focus();
-          // Optionally regenerate new question after wrong answer to prevent brute force
-          // But we can just let them retry with same question, or regenerate:
-          // I'll regenerate to make it harder for bots
           generateQuestion();
         }
       }
 
-      // Event listeners
       btnEl.addEventListener('click', verify);
       inputEl.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
@@ -1436,35 +1207,16 @@
       });
       refreshBtn.addEventListener('click', generateQuestion);
 
-      // Check session on load
       if (sessionStorage.getItem('captcha_passed') === 'true') {
         overlay.classList.add('hidden');
       } else {
-        overlay.classList.remove('hidden');
         generateQuestion();
       }
 
-      // Prevent overlay from being hidden via ESC or click outside
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) {
-          // Do nothing, keep overlay visible
-        }
-      });
-
-      // Prevent context menu on overlay
       overlay.addEventListener('contextmenu', function (e) {
         e.preventDefault();
       });
 
-      // Auto-focus on input when overlay appears
-      if (!overlay.classList.contains('hidden')) {
-        setTimeout(function () {
-          inputEl.focus();
-        }, 400);
-      }
-
-      // If user reloads and session exists, overlay stays hidden
-      // Also handle visibility change to keep overlay if session not set
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) return;
         if (sessionStorage.getItem('captcha_passed') !== 'true') {
@@ -1475,10 +1227,8 @@
           }, 300);
         }
       });
-
     })();
   </script>
-
 </body>
 
 </html>
