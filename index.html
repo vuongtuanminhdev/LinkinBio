@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <meta name="description" content="MV.Novix Store - Links & Mạng xã hội" />
   <meta name="theme-color" content="#0a0a0f" />
   <title>MV.Novix Store | Links</title>
@@ -15,16 +14,11 @@
   <link rel="apple-touch-icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M12 60 L22 30 L38 45 L50 22 L62 45 L78 30 L88 60 L80 60 L80 70 L20 70 L20 60 Z' fill='white' stroke='black' stroke-width='4' stroke-linejoin='round' paint-order='stroke fill'/%3E%3C/svg%3E" />
 
-  <!-- Preload font quan trọng -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap&font-display=swap"
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
     rel="stylesheet" />
-
-  <!-- Preload ảnh đại diện -->
-  <link rel="preload" as="image"
-    href="https://cdn.phototourl.com/free/2026-07-26-24a665eb-b7c7-495b-aac6-5cfd7eab39e9.jpg" fetchpriority="high" />
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -50,21 +44,16 @@
       --accent3: #00c6ff;
       --glow: rgba(199, 125, 255, 0.2);
       --glow-strong: rgba(199, 125, 255, 0.4);
-      --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+      --shadow-card: 0 12px 48px rgba(0, 0, 0, 0.6);
       --gradient-avatar: linear-gradient(135deg, #c77dff, #7b2fff, #00c6ff, #c77dff);
       --gradient-shop: linear-gradient(135deg, #ff6b6b, #f06595, #cc5de8, #845ef7);
       --radius-card: 20px;
       --radius-icon: 14px;
-      --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     html {
       scroll-behavior: smooth;
-      -webkit-tap-highlight-color: transparent;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
     }
 
     body {
@@ -72,86 +61,81 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 32px 16px 60px;
       line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       position: relative;
-      isolation: isolate;
     }
 
-    /* ===== ANIMATED BACKGROUND (tối ưu GPU) ===== */
+    /* ===== ANIMATED BACKGROUND ===== */
     .bg-canvas {
       position: fixed;
       inset: 0;
       z-index: 0;
       overflow: hidden;
       pointer-events: none;
-      transform: translateZ(0);
-      will-change: transform;
     }
 
     .bg-canvas .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.45;
-      animation: orbFloat 25s ease-in-out infinite alternate;
-      will-change: transform;
-      transform: translateZ(0);
+      filter: blur(100px);
+      opacity: 0.5;
+      animation: orbFloat 20s ease-in-out infinite alternate;
     }
 
     .bg-canvas .orb:nth-child(1) {
-      width: 500px;
-      height: 500px;
+      width: 600px;
+      height: 600px;
       background: #7b2fff;
-      top: -150px;
-      left: -150px;
-      animation-duration: 28s;
+      top: -200px;
+      left: -200px;
+      animation-duration: 25s;
       animation-delay: 0s;
     }
 
     .bg-canvas .orb:nth-child(2) {
-      width: 420px;
-      height: 420px;
+      width: 500px;
+      height: 500px;
       background: #00c6ff;
-      bottom: -120px;
-      right: -120px;
-      animation-duration: 32s;
+      bottom: -150px;
+      right: -150px;
+      animation-duration: 30s;
       animation-delay: 5s;
-      opacity: 0.3;
+      opacity: 0.35;
     }
 
     .bg-canvas .orb:nth-child(3) {
-      width: 340px;
-      height: 340px;
+      width: 400px;
+      height: 400px;
       background: #c77dff;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) translateZ(0);
-      animation-duration: 38s;
+      transform: translate(-50%, -50%);
+      animation-duration: 35s;
       animation-delay: 10s;
-      opacity: 0.18;
+      opacity: 0.2;
     }
 
     @keyframes orbFloat {
       0% {
-        transform: translate(0, 0) scale(1) translateZ(0);
+        transform: translate(0, 0) scale(1);
       }
 
       33% {
-        transform: translate(100px, -60px) scale(1.08) translateZ(0);
+        transform: translate(120px, -80px) scale(1.1);
       }
 
       66% {
-        transform: translate(-50px, 80px) scale(0.92) translateZ(0);
+        transform: translate(-60px, 100px) scale(0.9);
       }
 
       100% {
-        transform: translate(60px, -30px) scale(1.04) translateZ(0);
+        transform: translate(80px, -40px) scale(1.05);
       }
     }
 
@@ -162,12 +146,11 @@
       z-index: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
       background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 25%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 70%);
-      transform: translateZ(0);
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
     }
 
     /* ===== CAPTCHA OVERLAY ===== */
@@ -175,15 +158,15 @@
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(7, 7, 13, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: rgba(7, 7, 13, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
       opacity: 1;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
       visibility: visible;
     }
 
@@ -204,20 +187,6 @@
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
       position: relative;
       overflow: hidden;
-      animation: captchaIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-      transform: translateZ(0);
-    }
-
-    @keyframes captchaIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9) translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
     }
 
     .captcha-box::before {
@@ -248,7 +217,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: gradientShift 5s ease infinite;
+      animation: gradientShift 4s ease infinite;
     }
 
     .captcha-desc {
@@ -286,7 +255,7 @@
       font-weight: 500;
       text-align: center;
       outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
       font-family: 'DM Sans', sans-serif;
     }
 
@@ -312,19 +281,19 @@
       font-weight: 700;
       font-size: 16px;
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      animation: gradientShift 5s ease infinite;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: gradientShift 4s ease infinite;
       box-shadow: 0 4px 20px var(--glow);
       white-space: nowrap;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      position: relative;
-      overflow: hidden;
+    }
+
+    .captcha-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px var(--glow-strong);
     }
 
     .captcha-btn:active {
-      transform: scale(0.95);
-      transition: transform 0.1s ease;
+      transform: scale(0.96);
     }
 
     .captcha-error {
@@ -347,10 +316,9 @@
       border: none;
       text-decoration: underline;
       font-family: 'DM Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .captcha-refresh:active {
+    .captcha-refresh:hover {
       color: var(--accent);
     }
 
@@ -371,7 +339,6 @@
 
     .left-col {
       flex-shrink: 0;
-      contain: layout style;
     }
 
     .right-col {
@@ -425,8 +392,7 @@
       align-items: center;
       text-align: center;
       margin-bottom: 24px;
-      animation: fadeUp 0.7s ease both;
-      contain: layout style;
+      animation: fadeUp 0.8s ease both;
     }
 
     .avatar-wrap {
@@ -437,11 +403,9 @@
       background: var(--gradient-avatar);
       background-size: 300% 300%;
       margin-bottom: 20px;
-      animation: avatarGlow 8s ease infinite, gradientShift 6s ease infinite;
-      box-shadow: 0 0 50px rgba(199, 125, 255, 0.18), 0 0 100px rgba(123, 47, 255, 0.08);
+      animation: spinRing 10s linear infinite, gradientShift 6s ease infinite;
+      box-shadow: 0 0 60px rgba(199, 125, 255, 0.2), 0 0 120px rgba(123, 47, 255, 0.1);
       position: relative;
-      will-change: box-shadow;
-      transition: box-shadow 0.4s ease;
     }
 
     .avatar-wrap::after {
@@ -451,22 +415,10 @@
       border-radius: 50%;
       background: var(--gradient-avatar);
       background-size: 300% 300%;
-      opacity: 0.15;
-      filter: blur(18px);
+      opacity: 0.2;
+      filter: blur(20px);
       animation: gradientShift 6s ease infinite;
       z-index: -1;
-    }
-
-    @keyframes avatarGlow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 50px rgba(199, 125, 255, 0.18), 0 0 100px rgba(123, 47, 255, 0.08);
-      }
-
-      50% {
-        box-shadow: 0 0 70px rgba(199, 125, 255, 0.28), 0 0 130px rgba(0, 198, 255, 0.12);
-      }
     }
 
     .avatar-inner {
@@ -480,7 +432,6 @@
       overflow: hidden;
       border: 3px solid var(--bg);
       position: relative;
-      transform: translateZ(0);
     }
 
     .avatar-image {
@@ -489,18 +440,11 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform 0.5s ease;
-      will-change: transform;
+      transition: transform 0.6s ease;
     }
 
-    @media (hover: hover) {
-      .avatar-wrap:hover .avatar-image {
-        transform: scale(1.05);
-      }
-
-      .avatar-wrap:hover {
-        box-shadow: 0 0 70px rgba(199, 125, 255, 0.3), 0 0 130px rgba(123, 47, 255, 0.15);
-      }
+    .avatar-wrap:hover .avatar-image {
+      transform: scale(1.05);
     }
 
     .profile-name {
@@ -515,6 +459,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: gradientShift 6s ease infinite;
+      position: relative;
     }
 
     .profile-tag {
@@ -528,13 +473,12 @@
       border: 1px solid var(--border);
       display: inline-block;
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
 
     /* ===== SHOP CTA ===== */
     .shop-cta-wrapper {
       margin-bottom: 28px;
-      animation: fadeUp 0.7s 0.06s ease both;
+      animation: fadeUp 0.8s 0.08s ease both;
       display: flex;
       justify-content: center;
       width: 100%;
@@ -556,49 +500,49 @@
       border-radius: 60px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 8px 28px rgba(204, 93, 232, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+      box-shadow: 0 8px 32px rgba(204, 93, 232, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       z-index: 1;
-      animation: gradientShift 5s ease infinite, pulseGlow 4s ease-in-out infinite;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
+      animation: gradientShift 4s ease infinite, pulseGlow 3s ease-in-out infinite;
     }
 
     .shop-cta::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 60%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 60%);
       opacity: 0;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.4s ease;
       z-index: 2;
     }
 
-    @media (hover: hover) {
-      .shop-cta:hover::before {
-        opacity: 1;
-      }
+    .shop-cta:hover::before {
+      opacity: 1;
+    }
 
-      .shop-cta:hover {
-        transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 16px 44px rgba(204, 93, 232, 0.55), 0 0 0 2px rgba(255, 255, 255, 0.12);
-        animation: gradientShift 3.5s ease infinite, pulseGlow 2s ease-in-out infinite;
-      }
+    .shop-cta::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 58px;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-      .shop-cta:hover .shop-icon {
-        transform: rotate(-12deg) scale(1.1);
-      }
+    .shop-cta:hover::after {
+      opacity: 1;
+    }
 
-      .shop-cta:hover .shop-badge {
-        background: rgba(255, 255, 255, 0.3);
-        border-color: rgba(255, 255, 255, 0.3);
-        transform: scale(1.05);
-      }
+    .shop-cta:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(204, 93, 232, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.15);
+      animation: gradientShift 3s ease infinite, pulseGlow 1.5s ease-in-out infinite;
     }
 
     .shop-cta:active {
-      transform: scale(0.95);
-      transition: transform 0.12s ease;
+      transform: translateY(-1px) scale(0.97);
     }
 
     .shop-icon {
@@ -609,12 +553,15 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 50%;
       padding: 6px;
-      transition: transform 0.35s ease;
+      transition: transform 0.4s ease;
       backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .shop-cta:hover .shop-icon {
+      transform: rotate(-12deg) scale(1.1);
     }
 
     .shop-icon svg {
@@ -627,7 +574,7 @@
     .shop-text {
       position: relative;
       z-index: 3;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       gap: 4px;
@@ -636,7 +583,7 @@
     .shop-badge {
       position: relative;
       z-index: 3;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.2);
       font-size: 10px;
       font-weight: 800;
       padding: 4px 12px;
@@ -644,22 +591,27 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       color: white;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       transition: all 0.3s ease;
+    }
+
+    .shop-cta:hover .shop-badge {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
     }
 
     @keyframes pulseGlow {
 
       0%,
       100% {
-        box-shadow: 0 8px 28px rgba(204, 93, 232, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
+        box-shadow: 0 8px 32px rgba(204, 93, 232, 0.4);
       }
 
       50% {
-        box-shadow: 0 14px 42px rgba(255, 107, 107, 0.45), 0 0 0 2px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 48px rgba(255, 107, 107, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.1);
       }
     }
 
@@ -680,8 +632,7 @@
     /* ===== SOCIAL ===== */
     .social-section {
       margin-bottom: 28px;
-      animation: fadeUp 0.7s 0.1s ease both;
-      contain: layout style;
+      animation: fadeUp 0.8s 0.12s ease both;
     }
 
     .section-label {
@@ -705,7 +656,7 @@
       background: var(--gradient-avatar);
       background-size: 300% 300%;
       border-radius: 4px;
-      animation: gradientShift 5s ease infinite;
+      animation: gradientShift 4s ease infinite;
     }
 
     .social-row {
@@ -721,8 +672,7 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .social-icon {
@@ -734,12 +684,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      will-change: transform;
-      contain: layout style;
     }
 
     .social-icon::before {
@@ -755,34 +702,33 @@
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       opacity: 0;
-      transition: opacity 0.35s ease;
-      animation: gradientShift 5s ease infinite;
+      transition: opacity 0.4s ease;
+      animation: gradientShift 4s ease infinite;
     }
 
-    @media (hover: hover) {
-      .social-btn:hover .social-icon::before {
-        opacity: 1;
-      }
-
-      .social-btn:hover .social-icon {
-        border-color: var(--accent);
-        transform: translateY(-6px) scale(1.02);
-        box-shadow: 0 12px 28px var(--glow);
-        background: var(--surface-hover);
-      }
-
-      .social-btn:hover .social-icon svg {
-        transform: scale(1.1);
-      }
-
-      .social-btn:hover .social-name {
-        color: var(--accent);
-      }
+    .social-btn:hover .social-icon::before {
+      opacity: 1;
     }
 
-    .social-btn:active .social-icon {
-      transform: scale(0.93);
-      transition: transform 0.1s ease;
+    .social-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      border-radius: 16px;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-btn:hover .social-icon {
+      border-color: var(--accent);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 32px var(--glow);
+      background: var(--surface-hover);
+    }
+
+    .social-btn:hover .social-icon::after {
+      opacity: 0.06;
     }
 
     .social-icon svg {
@@ -790,7 +736,11 @@
       height: 22px;
       position: relative;
       z-index: 1;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
+    }
+
+    .social-btn:hover .social-icon svg {
+      transform: scale(1.1);
     }
 
     .social-name {
@@ -800,6 +750,10 @@
       color: var(--text-muted);
       text-transform: uppercase;
       transition: color 0.3s ease;
+    }
+
+    .social-btn:hover .social-name {
+      color: var(--accent);
     }
 
     .si-fb {
@@ -828,7 +782,7 @@
       align-items: center;
       gap: 16px;
       margin: 28px 0;
-      animation: fadeUp 0.7s 0.16s ease both;
+      animation: fadeUp 0.8s 0.18s ease both;
     }
 
     .divider-line {
@@ -853,7 +807,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      animation: fadeUp 0.7s 0.22s ease both;
+      animation: fadeUp 0.8s 0.25s ease both;
     }
 
     .link-card {
@@ -863,17 +817,13 @@
       text-decoration: none;
       background: var(--surface);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: var(--radius-card);
       padding: 16px 20px;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      contain: layout style;
-      will-change: transform;
     }
 
     .link-card::before {
@@ -888,7 +838,7 @@
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       opacity: 0;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.4s ease;
       pointer-events: none;
     }
 
@@ -903,46 +853,23 @@
       border-radius: 0 4px 4px 0;
       transform: scaleY(0);
       transform-origin: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.35s ease;
       pointer-events: none;
     }
 
-    @media (hover: hover) {
-      .link-card:hover::before {
-        opacity: 1;
-      }
-
-      .link-card:hover::after {
-        transform: scaleY(1);
-      }
-
-      .link-card:hover {
-        transform: translateX(8px) scale(1.01);
-        border-color: var(--card-accent, var(--accent));
-        box-shadow: var(--shadow-card), 0 0 30px var(--glow);
-        background: var(--surface-hover);
-      }
-
-      .link-card:hover .card-icon-wrap {
-        border-color: var(--card-accent, var(--accent));
-        transform: scale(1.04);
-        box-shadow: 0 0 18px var(--glow);
-      }
-
-      .link-card:hover .card-title {
-        color: var(--card-accent, var(--accent));
-      }
-
-      .link-card:hover .card-arrow {
-        color: var(--card-accent, var(--accent));
-        transform: translateX(6px) scale(1.1);
-        opacity: 1;
-      }
+    .link-card:hover::before {
+      opacity: 1;
     }
 
-    .link-card:active {
-      transform: scale(0.97);
-      transition: transform 0.12s ease;
+    .link-card:hover::after {
+      transform: scaleY(1);
+    }
+
+    .link-card:hover {
+      transform: translateX(6px) scale(1.01);
+      border-color: var(--card-accent, var(--accent));
+      box-shadow: var(--shadow-card), 0 0 30px var(--glow);
+      background: var(--surface-hover);
     }
 
     .card-icon-wrap {
@@ -958,8 +885,13 @@
       z-index: 1;
       overflow: hidden;
       border: 1px solid var(--border);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      contain: strict;
+      transition: all 0.4s ease;
+    }
+
+    .link-card:hover .card-icon-wrap {
+      border-color: var(--card-accent, var(--accent));
+      transform: scale(1.04);
+      box-shadow: 0 0 20px var(--glow);
     }
 
     .card-icon-wrap img,
@@ -988,6 +920,10 @@
       transition: color 0.3s ease;
     }
 
+    .link-card:hover .card-title {
+      color: var(--card-accent, var(--accent));
+    }
+
     .card-sub {
       font-size: 11px;
       color: var(--text-muted);
@@ -1007,9 +943,15 @@
       color: var(--text-muted);
       position: relative;
       z-index: 1;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, opacity 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex-shrink: 0;
       opacity: 0.5;
+    }
+
+    .link-card:hover .card-arrow {
+      color: var(--card-accent, var(--accent));
+      transform: translateX(6px) scale(1.1);
+      opacity: 1;
     }
 
     /* ===== FOOTER ===== */
@@ -1018,7 +960,7 @@
       text-align: center;
       font-size: 12px;
       color: var(--text-muted);
-      animation: fadeUp 0.7s 0.3s ease both;
+      animation: fadeUp 0.8s 0.35s ease both;
       position: relative;
       padding-top: 20px;
     }
@@ -1042,14 +984,20 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: gradientShift 5s ease infinite;
+      animation: gradientShift 4s ease infinite;
     }
 
     /* ===== ANIMATIONS ===== */
+    @keyframes spinRing {
+      to {
+        filter: hue-rotate(360deg);
+      }
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(30px);
       }
 
       to {
@@ -1074,26 +1022,6 @@
 
     ::-webkit-scrollbar-thumb:hover {
       background: var(--accent);
-    }
-
-    /* ===== ACCESSIBILITY ===== */
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    /* ===== PREFERS REDUCED MOTION ===== */
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
     }
 
     /* ===== MOBILE OPTIMIZATION ===== */
@@ -1173,29 +1101,28 @@
 <body>
 
   <!-- ===== CAPTCHA OVERLAY ===== -->
-  <div class="captcha-overlay" id="captchaOverlay" aria-hidden="false">
-    <div class="captcha-box" role="dialog" aria-labelledby="captchaTitle" aria-modal="true">
-      <span class="captcha-icon" aria-hidden="true">🛡️</span>
-      <h2 class="captcha-title" id="captchaTitle">Xác minh không phải robot</h2>
+  <div class="captcha-overlay" id="captchaOverlay">
+    <div class="captcha-box">
+      <span class="captcha-icon">🛡️</span>
+      <h2 class="captcha-title">Xác minh không phải robot</h2>
       <p class="captcha-desc">Vui lòng giải phép toán đơn giản để tiếp tục</p>
-      <div class="captcha-question" id="captchaQuestion" aria-live="polite">3 + 5 = ?</div>
+      <div class="captcha-question" id="captchaQuestion">3 + 5 = ?</div>
       <div class="captcha-input-group">
-        <input type="number" id="captchaInput" class="captcha-input" placeholder="Nhập kết quả" inputmode="numeric"
-          autocomplete="off" />
+        <input type="number" id="captchaInput" class="captcha-input" placeholder="Nhập kết quả" autofocus />
         <button class="captcha-btn" id="captchaBtn">Xác nhận</button>
       </div>
-      <div class="captcha-error" id="captchaError" aria-live="assertive"></div>
+      <div class="captcha-error" id="captchaError"></div>
       <button class="captcha-refresh" id="captchaRefresh">⟳ Làm mới câu hỏi</button>
     </div>
   </div>
 
   <!-- ===== ANIMATED BACKGROUND ===== -->
-  <div class="bg-canvas" aria-hidden="true">
+  <div class="bg-canvas">
     <div class="orb"></div>
     <div class="orb"></div>
     <div class="orb"></div>
   </div>
-  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-grid"></div>
 
   <div class="container">
 
@@ -1210,7 +1137,7 @@
           <div class="avatar-wrap">
             <div class="avatar-inner">
               <img src="https://cdn.phototourl.com/free/2026-07-26-24a665eb-b7c7-495b-aac6-5cfd7eab39e9.jpg"
-                alt="MV Novix Logo" class="avatar-image" width="172" height="172" decoding="async" />
+                alt="MV Novix Logo" class="avatar-image" loading="lazy" decoding="async">
             </div>
           </div>
           <h1 class="profile-name">VUONG TUAN MINH</h1>
@@ -1219,8 +1146,8 @@
 
         <!-- SHOP CTA -->
         <div class="shop-cta-wrapper">
-          <a href="#" class="shop-cta" aria-label="Đến Shop MV Novix">
-            <span class="shop-icon" aria-hidden="true">
+          <a href="#" class="shop-cta">
+            <span class="shop-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
                 <circle cx="9" cy="21" r="1" fill="white" stroke="none" />
@@ -1237,20 +1164,19 @@
         <div class="social-section">
           <p class="section-label">Mạng xã hội</p>
           <div class="social-row">
-            <a href="https://www.facebook.com/tuanminh.abcd" class="social-btn" aria-label="Facebook" target="_blank"
-              rel="noopener">
+            <a href="https://www.facebook.com/tuanminh.abcd" class="social-btn" aria-label="Facebook">
               <div class="social-icon">
-                <svg class="si-fb" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg class="si-fb" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </div>
               <span class="social-name">Facebook</span>
             </a>
             <a href="https://www.instagram.com/vtm5th7?igsh=MXhmdHp0OHEwdHdyeg==" class="social-btn"
-              aria-label="Instagram" target="_blank" rel="noopener">
+              aria-label="Instagram">
               <div class="social-icon">
                 <svg class="si-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -1259,10 +1185,9 @@
               <span class="social-name">Instagram</span>
             </a>
 
-            <a href="https://tiktok.com/@mv.novix" class="social-btn" aria-label="TikTok" target="_blank"
-              rel="noopener">
+            <a href="https://tiktok.com/@mv.novix" class="social-btn" aria-label="TikTok">
               <div class="social-icon">
-                <svg class="si-tt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg class="si-tt" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z" />
                 </svg>
@@ -1270,10 +1195,9 @@
               <span class="social-name">TikTok</span>
             </a>
 
-            <a href="http://www.youtube.com/@vuongtuanminhdev" class="social-btn" aria-label="YouTube" target="_blank"
-              rel="noopener">
+            <a href="http://www.youtube.com/@vuongtuanminhdev" class="social-btn" aria-label="YouTube">
               <div class="social-icon">
-                <svg class="si-yt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg class="si-yt" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
                   <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" />
@@ -1282,10 +1206,9 @@
               <span class="social-name">YouTube</span>
             </a>
 
-            <a href="http://zaloapp.com/qr/p/1m2sfxp7zuioz" class="social-btn" aria-label="Zalo" target="_blank"
-              rel="noopener">
+            <a href="http://zaloapp.com/qr/p/1m2sfxp7zuioz" class="social-btn" aria-label="Zalo">
               <div class="social-icon">
-                <svg class="si-zl" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg class="si-zl" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V9h2v7zm4 0h-2V9h2v7z" />
                 </svg>
@@ -1314,13 +1237,13 @@
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-26-873b32da-98e1-4d4b-b130-190c2f1102e1.jpg"
-                alt="MTH Proxy" loading="lazy" decoding="async" width="52" height="52" />
+                alt="MTH Proxy" loading="lazy" decoding="async">
             </div>
             <div class="card-info">
               <p class="card-title">MTH PROXY V9.0</p>
               <p class="card-sub">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
+                  stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
@@ -1330,7 +1253,7 @@
               </p>
             </div>
             <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </a>
@@ -1340,23 +1263,23 @@
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-27-ee32109a-0169-492f-8c38-b3998dda0e0d.jpg"
-                alt="YSM TEAM MOD MENU V3.0" loading="lazy" decoding="async" width="52" height="52" />
+                alt="YSM TEAM MOD MENU V3.0" loading="lazy" decoding="async">
             </div>
             <div class="card-info">
               <p class="card-title">YSM TEAM MOD MENU V3</p>
               <p class="card-sub">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
+                  stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Update: 12/07/2026 | Lưu ý: Bản này là mod menu nên rất dễ ban td!
+                Update: 12/07/2026 | Lưu ý: Bản này là mod menu nên dễ ban td!
               </p>
             </div>
             <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </a>
@@ -1366,13 +1289,13 @@
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-26-c117947b-2271-476e-a1ec-5b0b5c90b434.png"
-                alt="SX2 TEAM Proxy V4" loading="lazy" decoding="async" width="52" height="52" />
+                alt="SX2 TEAM Proxy V4" loading="lazy" decoding="async">
             </div>
             <div class="card-info">
               <p class="card-title">SX2 TEAM PROXY V4.0</p>
               <p class="card-sub">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
+                  stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
@@ -1382,7 +1305,7 @@
               </p>
             </div>
             <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </a>
@@ -1392,13 +1315,13 @@
             rel="noopener">
             <div class="card-icon-wrap">
               <img src="https://cdn.phototourl.com/free/2026-07-26-048e72b3-6f69-4e3a-938b-529981ddf63a.jpg" alt="Vextu"
-                loading="lazy" decoding="async" width="52" height="52" />
+                loading="lazy" decoding="async">
             </div>
             <div class="card-info">
               <p class="card-title">Fake Lag NinjaPlus_VextuCracked</p>
               <p class="card-sub">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
+                  stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
@@ -1408,7 +1331,7 @@
               </p>
             </div>
             <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </a>
@@ -1419,13 +1342,13 @@
             <div class="card-icon-wrap">
               <img
                 src="https://play-lh.googleusercontent.com/IuexTsP_Ho8Go-8DEtUg1oxbdQ-eIH44wctnTRrHHwPjEZLUQxnNHpkGcbfvHY7JJPeEp4_OdfdOgjH3DgD2Pw"
-                alt="MV Novix MOD Skin OutFit" loading="lazy" decoding="async" width="52" height="52" />
+                loading="lazy" decoding="async">
             </div>
             <div class="card-info">
               <p class="card-title">MV Novix MOD_Skin_OutFit</p>
               <p class="card-sub">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
+                  stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
@@ -1435,7 +1358,7 @@
               </p>
             </div>
             <svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </a>
@@ -1448,12 +1371,14 @@
   <div class="footer">
     <p>Tạo bởi <span>MVuong - Novix</span> &bull; 2026</p>
   </div>
+  </div>
 
-  <!-- ===== CAPTCHA SCRIPT (tối ưu) ===== -->
+  <!-- ===== CAPTCHA SCRIPT ===== -->
   <script>
     (function () {
       'use strict';
 
+      // DOM elements
       const overlay = document.getElementById('captchaOverlay');
       const questionEl = document.getElementById('captchaQuestion');
       const inputEl = document.getElementById('captchaInput');
@@ -1461,116 +1386,95 @@
       const errorEl = document.getElementById('captchaError');
       const refreshBtn = document.getElementById('captchaRefresh');
 
+      // State
       let num1 = 0;
       let num2 = 0;
       let correctAnswer = 0;
-      let isTransitioning = false;
 
+      // Generate random numbers 1-10
       function generateQuestion() {
-        num1 = Math.floor(Math.random() * 9) + 1;
+        num1 = Math.floor(Math.random() * 9) + 1; // 1-9
         num2 = Math.floor(Math.random() * 9) + 1;
         correctAnswer = num1 + num2;
         questionEl.textContent = num1 + ' + ' + num2 + ' = ?';
         errorEl.textContent = '';
         inputEl.value = '';
-        inputEl.focus({ preventScroll: true });
-        isTransitioning = false;
+        inputEl.focus();
       }
 
-      function showError(message) {
-        errorEl.textContent = message;
-        errorEl.style.opacity = '0';
-        requestAnimationFrame(() => {
-          errorEl.style.transition = 'opacity 0.25s ease';
-          errorEl.style.opacity = '1';
-        });
-      }
-
+      // Check answer
       function verify() {
-        if (isTransitioning) return;
         const userAnswer = parseInt(inputEl.value.trim(), 10);
         if (isNaN(userAnswer)) {
-          showError('⚠️ Vui lòng nhập một số.');
-          inputEl.focus({ preventScroll: true });
+          errorEl.textContent = '⚠️ Vui lòng nhập một số.';
           return;
         }
         if (userAnswer === correctAnswer) {
-          isTransitioning = true;
-          sessionStorage.setItem('captcha_passed_v2', 'true');
-          overlay.style.transition = 'opacity 0.4s ease, visibility 0.4s ease';
+          // Success: hide overlay and store session
+          sessionStorage.setItem('captcha_passed', 'true');
           overlay.classList.add('hidden');
+          // Focus away from input to avoid accidental keyboard
           inputEl.blur();
-          document.body.style.overflow = '';
         } else {
-          showError('❌ Sai rồi, thử lại nhé!');
+          errorEl.textContent = '❌ Sai rồi, thử lại nhé!';
           inputEl.value = '';
-          inputEl.focus({ preventScroll: true });
+          inputEl.focus();
+          // Optionally regenerate new question after wrong answer to prevent brute force
+          // But we can just let them retry with same question, or regenerate:
+          // I'll regenerate to make it harder for bots
           generateQuestion();
         }
       }
 
-      // Event listeners với passive optimization
-      btnEl.addEventListener('click', verify, { passive: true });
+      // Event listeners
+      btnEl.addEventListener('click', verify);
       inputEl.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
           e.preventDefault();
           verify();
         }
-      }, { passive: false });
-      refreshBtn.addEventListener('click', generateQuestion, { passive: true });
+      });
+      refreshBtn.addEventListener('click', generateQuestion);
 
-      // Khóa cuộn trang khi captcha hiển thị
-      function lockScroll(lock) {
-        document.body.style.overflow = lock ? 'hidden' : '';
+      // Check session on load
+      if (sessionStorage.getItem('captcha_passed') === 'true') {
+        overlay.classList.add('hidden');
+      } else {
+        overlay.classList.remove('hidden');
+        generateQuestion();
       }
 
-      function checkSession() {
-        if (sessionStorage.getItem('captcha_passed_v2') === 'true') {
-          overlay.classList.add('hidden');
-          lockScroll(false);
-        } else {
-          overlay.classList.remove('hidden');
-          lockScroll(true);
-          generateQuestion();
+      // Prevent overlay from being hidden via ESC or click outside
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+          // Do nothing, keep overlay visible
         }
-      }
+      });
 
-      checkSession();
-
-      // Ngăn thoát captcha bằng ESC
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
-          e.preventDefault();
-          inputEl.focus({ preventScroll: true });
-        }
-      }, { passive: false });
-
-      // Ngăn context menu trên overlay
+      // Prevent context menu on overlay
       overlay.addEventListener('contextmenu', function (e) {
         e.preventDefault();
-      }, { passive: false });
+      });
 
-      // Xử lý visibility change
+      // Auto-focus on input when overlay appears
+      if (!overlay.classList.contains('hidden')) {
+        setTimeout(function () {
+          inputEl.focus();
+        }, 400);
+      }
+
+      // If user reloads and session exists, overlay stays hidden
+      // Also handle visibility change to keep overlay if session not set
       document.addEventListener('visibilitychange', function () {
         if (document.hidden) return;
-        if (sessionStorage.getItem('captcha_passed_v2') !== 'true') {
+        if (sessionStorage.getItem('captcha_passed') !== 'true') {
           overlay.classList.remove('hidden');
-          lockScroll(true);
           generateQuestion();
+          setTimeout(function () {
+            inputEl.focus();
+          }, 300);
         }
-      }, { passive: true });
-
-      // Focus input khi overlay xuất hiện
-      const observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-          if (mutation.target === overlay && !overlay.classList.contains('hidden')) {
-            setTimeout(function () {
-              inputEl.focus({ preventScroll: true });
-            }, 350);
-          }
-        });
       });
-      observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
 
     })();
   </script>
